@@ -35,8 +35,8 @@ export function NavMain({
                 <SidebarMenuButton asChild>
                   <Link href={item.url}>
                     {item.icon && (
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-primary/40 bg-primary/15">
-                        <item.icon className="h-4 w-4 !text-primary" style={{ color: "#D4AF37" }} />
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-[#8b7fff] via-[#4f9dff] to-[#ff6fa5] shadow-[0_0_12px_rgba(139,127,255,0.5)] transition-shadow duration-200 group-hover/menu-item:shadow-[0_0_18px_rgba(139,127,255,0.75)]">
+                        <item.icon className="h-4 w-4 text-[#0a0a14]" />
                       </span>
                     )}
                     <span>{item.title}</span>
