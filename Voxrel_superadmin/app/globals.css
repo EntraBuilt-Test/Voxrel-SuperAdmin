@@ -65,7 +65,7 @@
     /* ===== Voxrel SuperAdmin — Gold & Black theme ===== */
     --background: #0a0a0f;
     --foreground: #f5f1e8;
-    --card: rgba(20, 18, 12, 0.55);
+    --card: rgba(30, 26, 16, 0.65);
     --card-foreground: #f5f1e8;
     --popover: #14120c;
     --popover-foreground: #f5f1e8;
@@ -79,8 +79,8 @@
     --accent-foreground: #0a0a0f;
     --destructive: #dc2626;
     --destructive-foreground: #ffffff;
-    --border: rgba(212, 175, 55, 0.18);
-    --input: rgba(212, 175, 55, 0.12);
+    --border: rgba(212, 175, 55, 0.28);
+    --input: rgba(212, 175, 55, 0.2);
     --ring: #d4af37;
     --chart-1: #d4af37;
     --chart-2: #a89968;
