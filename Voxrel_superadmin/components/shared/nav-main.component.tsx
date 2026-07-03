@@ -35,8 +35,8 @@ export function NavMain({
                 <SidebarMenuButton asChild>
                   <Link href={item.url}>
                     {item.icon && (
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-primary/20 bg-primary/10 text-primary">
-                        <item.icon className="h-3.5 w-3.5" />
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-primary/40 bg-primary/15">
+                        <item.icon className="h-4 w-4 !text-primary" style={{ color: "#D4AF37" }} />
                       </span>
                     )}
                     <span>{item.title}</span>
