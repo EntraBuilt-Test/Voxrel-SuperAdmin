@@ -47,10 +47,10 @@ export function ParticlesBackground({
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
-        r: Math.random() * 1.6 + 0.4,
-        speedY: Math.random() * 0.3 + 0.05,
+        r: Math.random() * 2.2 + 0.8,
+        speedY: Math.random() * 0.35 + 0.08,
         speedX: (Math.random() - 0.5) * 0.15,
-        opacity: Math.random() * 0.5 + 0.15,
+        opacity: Math.random() * 0.5 + 0.35,
       }));
     };
 
@@ -58,6 +58,8 @@ export function ParticlesBackground({
       ctx.clearRect(0, 0, width, height);
       for (const p of particles) {
         ctx.beginPath();
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = `rgba(${color}, 0.8)`;
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${color}, ${p.opacity})`;
         ctx.fill();
