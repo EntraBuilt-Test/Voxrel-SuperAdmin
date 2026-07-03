@@ -42,7 +42,7 @@ export function TeamSwitcher({
           onClick={handleClick}
         >
           <div className="flex aspect-square size-8 items-center justify-center rounded-lg overflow-hidden">
-            <Image src="/kreativs-ai-logo.jpg" alt="KreativS Logo" width={32} height={32} className="object-contain" />
+            <Image src="/voxrel-logo.png" alt="Voxrel Logo" width={32} height={32} className="object-contain" />
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
             <span className="truncate font-semibold">
