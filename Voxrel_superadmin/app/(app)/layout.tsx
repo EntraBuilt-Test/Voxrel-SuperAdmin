@@ -13,7 +13,7 @@ export default function AppLayout({ children }: Readonly<{ children: React.React
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset className="relative overflow-hidden bg-background">
-          <ParticlesBackground color="212,175,55" density={0.35} className="opacity-60" />
+          <ParticlesBackground color="212,175,55" density={1.1} />
           <div className="relative z-10">
             <DynamicHeader />
             <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
