@@ -62,38 +62,39 @@
   }
 
   .dark {
-    --background: oklch(0.141 0.005 285.823);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.21 0.006 285.885);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.21 0.006 285.885);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.546 0.245 262.881);
-    --primary-foreground: oklch(0.379 0.146 265.522);
-    --secondary: oklch(0.274 0.006 286.033);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.274 0.006 286.033);
-    --muted-foreground: oklch(0.705 0.015 286.067);
-    --accent: oklch(0.274 0.006 286.033);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --destructive-foreground: oklch(1 0 0);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.488 0.243 264.376);
-    --chart-1: oklch(0.488 0.243 264.376);
-    --chart-2: oklch(0.696 0.17 162.48);
-    --chart-3: oklch(0.769 0.188 70.08);
-    --chart-4: oklch(0.627 0.265 303.9);
-    --chart-5: oklch(0.645 0.246 16.439);
-    --sidebar: oklch(1 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.546 0.245 262.881);
-    --sidebar-primary-foreground: oklch(0.379 0.146 265.522);
-    --sidebar-accent: oklch(0.274 0.006 286.033);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.488 0.243 264.376);
+    /* ===== Voxrel SuperAdmin — Gold & Black theme ===== */
+    --background: #0a0a0f;
+    --foreground: #f5f1e8;
+    --card: rgba(30, 26, 16, 0.65);
+    --card-foreground: #f5f1e8;
+    --popover: #14120c;
+    --popover-foreground: #f5f1e8;
+    --primary: #d4af37;
+    --primary-foreground: #0a0a0f;
+    --secondary: #1a1710;
+    --secondary-foreground: #f5f1e8;
+    --muted: #14120c;
+    --muted-foreground: #a89968;
+    --accent: #d4af37;
+    --accent-foreground: #0a0a0f;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+    --border: rgba(212, 175, 55, 0.28);
+    --input: rgba(212, 175, 55, 0.2);
+    --ring: #d4af37;
+    --chart-1: #d4af37;
+    --chart-2: #a89968;
+    --chart-3: #8a7530;
+    --chart-4: #f0d878;
+    --chart-5: #6b5a20;
+    --sidebar: #0d0b08;
+    --sidebar-foreground: #f5f1e8;
+    --sidebar-primary: #d4af37;
+    --sidebar-primary-foreground: #0a0a0f;
+    --sidebar-accent: rgba(212, 175, 55, 0.1);
+    --sidebar-accent-foreground: #d4af37;
+    --sidebar-border: rgba(212, 175, 55, 0.14);
+    --sidebar-ring: #d4af37;
   }
 }
 

@@ -1,0 +1,243 @@
+/*
+  Voxrel Aurora Theme
+  Drop this file in alongside your existing globals.css and import it
+  AFTER your current styles, e.g. in app/layout.tsx:
+    import "./globals.css";
+    import "./voxrel-aurora-theme.css";
+
+  This only adds new CSS variables, classes, and keyframes.
+  It does not touch any component logic, routing, or data fetching.
+*/
+
+:root {
+  --aurora-bg: #0a0a14;
+  --aurora-surface: #13131f;
+  --aurora-surface-elevated: #1c1c2e;
+  --aurora-border: #26263a;
+
+  --aurora-violet: #8b7fff;
+  --aurora-blue: #4f9dff;
+  --aurora-pink: #ff6fa5;
+
+  --aurora-text-primary: #f1efff;
+  --aurora-text-secondary: #8b899e;
+  --aurora-text-muted: #5c5a70;
+
+  --aurora-gradient: linear-gradient(
+    135deg,
+    var(--aurora-violet) 0%,
+    var(--aurora-blue) 50%,
+    var(--aurora-pink) 100%
+  );
+
+  --aurora-glow-violet: 0 0 24px rgba(139, 127, 255, 0.35);
+  --aurora-glow-blue: 0 0 24px rgba(79, 157, 255, 0.35);
+  --aurora-glow-pink: 0 0 24px rgba(255, 111, 165, 0.35);
+
+  --font-display: "Space Grotesk", var(--font-sans, sans-serif);
+  --font-body: "Inter", var(--font-sans, sans-serif);
+  --font-data: "JetBrains Mono", var(--font-mono, monospace);
+}
+
+/* ---------- Page shell ---------- */
+
+.aurora-shell {
+  background: var(--aurora-bg);
+  color: var(--aurora-text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* Animated drifting mesh, used behind login / dashboard header only.
+   Reserve this for one or two hero surfaces, not every page. */
+.aurora-mesh {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.aurora-mesh::before,
+.aurora-mesh::after {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: -1;
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+.aurora-mesh::before {
+  background: var(--aurora-violet);
+  top: -120px;
+  left: -80px;
+}
+
+.aurora-mesh::after {
+  background: var(--aurora-pink);
+  bottom: -140px;
+  right: -100px;
+  animation-delay: -8s;
+  animation-duration: 26s;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(60px, 40px) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-mesh::before,
+  .aurora-mesh::after {
+    animation: none;
+  }
+}
+
+/* ---------- Sidebar ---------- */
+
+.aurora-sidebar {
+  background: var(--aurora-surface);
+  border-right: 1px solid var(--aurora-border);
+}
+
+.aurora-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--aurora-text-secondary);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.aurora-nav-item:hover {
+  background: var(--aurora-surface-elevated);
+  color: var(--aurora-text-primary);
+}
+
+.aurora-nav-item.active {
+  background: linear-gradient(
+    90deg,
+    rgba(139, 127, 255, 0.16),
+    rgba(255, 111, 165, 0.1)
+  );
+  color: var(--aurora-text-primary);
+}
+
+.aurora-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--aurora-surface-elevated);
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.aurora-nav-item.active .aurora-nav-icon {
+  background: var(--aurora-gradient);
+  box-shadow: var(--aurora-glow-violet);
+}
+
+/* ---------- Cards / stat tiles ---------- */
+
+.aurora-card {
+  background: var(--aurora-surface);
+  border: 1px solid var(--aurora-border);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.aurora-card-glow {
+  position: relative;
+  background: var(--aurora-surface);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.aurora-card-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 1px;
+  background: var(--aurora-gradient);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.aurora-card-glow:hover::before {
+  opacity: 1;
+}
+
+.aurora-card-glow:hover {
+  box-shadow: var(--aurora-glow-blue);
+}
+
+.aurora-stat-value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  background: var(--aurora-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aurora-stat-label {
+  font-size: 13px;
+  color: var(--aurora-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Login card ---------- */
+
+.aurora-auth-card {
+  background: rgba(19, 19, 31, 0.72);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--aurora-border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 0 60px rgba(139, 127, 255, 0.15);
+}
+
+.aurora-brand-mark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  background: var(--aurora-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Buttons ---------- */
+
+.aurora-btn-primary {
+  background: var(--aurora-gradient);
+  color: #0a0a14;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.aurora-btn-primary:hover {
+  box-shadow: var(--aurora-glow-violet);
+}
+
+.aurora-btn-primary:active {
+  transform: scale(0.98);
+}

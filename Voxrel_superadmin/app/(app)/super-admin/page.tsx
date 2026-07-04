@@ -94,7 +94,6 @@ export default function SuperAdminLandingPage() {
   const loadAdmins = useCallback(async () => {
     try {
       const response = await projectService.getAdmins();
-      // Handle different response structures
       const adminsList = response.data?.admins || response.data?.users || [];
       setAdmins(adminsList);
     } catch {
@@ -102,7 +101,6 @@ export default function SuperAdminLandingPage() {
     }
   }, [showError]);
 
-  // Load admins when assign dialog opens
   useEffect(() => {
     if (showAssignDialog) {
       loadAdmins();
@@ -126,7 +124,6 @@ export default function SuperAdminLandingPage() {
       await projectService.assignProjectToAdmin(selectedProjectForAssign.id || selectedProjectForAssign._id || "", selectedAdminId);
       showSuccess("Admin assigned to project successfully");
       setShowAssignDialog(false);
-      // Refresh projects
       await fetchProjects();
     } catch {
       showError("Failed to assign admin to project");
@@ -135,9 +132,7 @@ export default function SuperAdminLandingPage() {
     }
   };
 
-  // Filter and sort projects
   const filteredProjects = projects.filter((project) => {
-    // Search filter
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       if (!project.name.toLowerCase().includes(query) &&
@@ -146,12 +141,10 @@ export default function SuperAdminLandingPage() {
       }
     }
 
-    // Status filter
     if (filterValues.status !== 'all' && project.status !== filterValues.status) {
       return false;
     }
 
-    // Type filter
     if (filterValues.type !== 'all' && project.type !== filterValues.type) {
       return false;
     }
@@ -159,7 +152,6 @@ export default function SuperAdminLandingPage() {
     return true;
   });
 
-  // Sort projects
   const sortedProjects = [...filteredProjects].sort((a, b) => {
     let aValue: string | number | boolean | null | undefined;
     let bValue: string | number | boolean | null | undefined;
@@ -195,7 +187,6 @@ export default function SuperAdminLandingPage() {
     }
   });
 
-  // Pagination
   const totalPages = Math.ceil(sortedProjects.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedProjects = sortedProjects.slice(startIndex, startIndex + itemsPerPage);
@@ -291,7 +282,7 @@ export default function SuperAdminLandingPage() {
 
         {/* Table Section */}
         <div className="flex-1 min-h-[calc(100vh-14rem)]">
-          <Card className="h-full flex flex-col">
+          <Card className="h-full flex flex-col aurora-card-glow">
             <CardContent className="p-0 h-full flex flex-col">
               {isLoading ? (
                 <div className="flex items-center justify-center h-full">
@@ -306,7 +297,7 @@ export default function SuperAdminLandingPage() {
                         : 'No projects found'}
                     </p>
                     {!searchQuery && filterValues.status === 'all' && filterValues.type === 'all' && (
-                      <Button onClick={() => router.push('/super-admin/projects/create')}>
+                      <Button onClick={() => router.push('/super-admin/projects/create')} className="bg-gradient-to-r from-[#8b7fff] to-[#ff6fa5] text-[#0a0a14] border-0 shadow-[0_0_16px_rgba(139,127,255,0.5)] hover:shadow-[0_0_24px_rgba(139,127,255,0.75)]">
                         <Plus className="mr-2 h-4 w-4" />
                         Create Project
                       </Button>
@@ -317,7 +308,7 @@ export default function SuperAdminLandingPage() {
                 <div className="flex-1 min-h-0 relative">
                   <div className="absolute inset-0 overflow-auto">
                     <table className="w-full caption-bottom text-sm">
-                      <thead className="sticky top-0 bg-background z-10 border-b">
+                      <thead className="sticky top-0 z-10 border-b bg-gradient-to-r from-[#8b7fff14] via-[#4f9dff14] to-[#ff6fa514]">
                         <tr className="border-b transition-colors hover:bg-muted/50">
                           <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">
                             <Button
@@ -493,6 +484,7 @@ export default function SuperAdminLandingPage() {
                             variant={page === currentPage ? "default" : "outline"}
                             size="sm"
                             onClick={() => setCurrentPage(page as number)}
+                            className={page === currentPage ? "bg-gradient-to-r from-[#8b7fff] to-[#ff6fa5] text-[#0a0a14] border-0 shadow-[0_0_12px_rgba(139,127,255,0.5)]" : ""}
                           >
                             {page}
                           </Button>
