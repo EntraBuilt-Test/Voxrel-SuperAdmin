@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit, Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+
 import { QueryProvider } from "@/components/providers/query.provider";
 import { ThemeProvider } from "@/components/providers/theme.provider";
+
 import "./globals.css";
 import "./voxrel-aurora-theme.css";
 
